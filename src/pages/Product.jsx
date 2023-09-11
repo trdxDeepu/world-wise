@@ -1,3 +1,4 @@
+/* eslint-disable react/no-unescaped-entities */
 import PageNav from "../components/PageNav";
 import styles from "./Product.module.css";
 
