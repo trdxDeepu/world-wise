@@ -7,6 +7,7 @@ const Sidebar = () => {
     <div className={styles.sidebar}>
       <Logo />
       <AppNav />
+      
       <p>List of cities</p>
       <footer className={styles.footer}>
         <p className={styles.copyright}>
