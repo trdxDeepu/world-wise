@@ -1,4 +1,6 @@
+/* eslint-disable no-unused-vars */
 /* eslint-disable react/jsx-no-undef */
+import { useParams, useSearchParams } from "react-router-dom";
 import styles from "./City.module.css";
 
 const formatDate = (date) =>
@@ -10,7 +12,9 @@ const formatDate = (date) =>
   }).format(new Date(date));
 
 function City() {
-  // TEMP DATA
+  const { id } = useParams();
+  const [searchParams, setSearchParams] = useSearchParams();
+
   const currentCity = {
     cityName: "Lisbon",
     emoji: "🇵🇹",
@@ -18,10 +22,18 @@ function City() {
     notes: "My favorite city so far!",
   };
 
+  const lat = searchParams.get("lat")
+  const lng = searchParams.get("lng")
   const { cityName, emoji, date, notes } = currentCity;
 
   return (
-    <div className={styles.city}>
+    <>
+      <h1>City {id}</h1>
+      <p>Position: {lat} and {lng}</p>;
+    </>
+  );
+}
+/*    <div className={styles.city}>
       <div className={styles.row}>
         <h6>City name</h6>
         <h3>
@@ -53,10 +65,10 @@ function City() {
       </div>
 
       <div>
-        <ButtonBack />
-      </div>
-    </div>
-  );
-}
+        {/* <ButtonBack /> */
+
+//     </div>
+//   </div>
+// ); */
 
 export default City;
