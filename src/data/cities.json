@@ -7,8 +7,8 @@
       "date": "2027-10-31T15:59:59.138Z",
       "notes": "My favorite city so far!",
       "position": {
-        "lat": 28.644800,
-        "lng":  77.216721
+        "lat": 28.6448,
+        "lng": 77.216721
       },
       "id": 73930385
     },
@@ -47,6 +47,42 @@
         "lng": "-2.13128394200588"
       },
       "id": 98443198
+    },
+    {
+      "cityName": "Gargilesse-Dampierre",
+      "country": "France",
+      "emoji": "🇫🇷",
+      "date": "2023-09-13T19:38:34.009Z",
+      "notes": "kbjhbjhbhjbjhb",
+      "position": {
+        "lat": "46.51177234607543",
+        "lng": "1.6259765625"
+      },
+      "id": 98443199
+    },
+    {
+      "cityName": "Lucknow",
+      "country": "India",
+      "emoji": "🇮🇳",
+      "date": "2023-09-13T19:39:23.971Z",
+      "notes": "jbjbhbjh",
+      "position": {
+        "lat": "27.073818408662987",
+        "lng": "80.74951171875001"
+      },
+      "id": 98443200
+    },
+    {
+      "cityName": "Kasdol",
+      "country": "India",
+      "emoji": "🇮🇳",
+      "date": "2023-09-13T19:42:14.578Z",
+      "notes": "ssdfdf",
+      "position": {
+        "lat": "21.398940940533286",
+        "lng": "82.30957031250001"
+      },
+      "id": 98443201
     }
   ]
 }
