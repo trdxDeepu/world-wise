@@ -1,5 +1,5 @@
 /* eslint-disable no-unused-vars */
-// 
+//
 
 import { useEffect, useState } from "react";
 import Button from "./Button";
@@ -18,34 +18,44 @@ export function convertToEmoji(countryCode) {
   return String.fromCodePoint(...codePoints);
 }
 
-const BASE_URL = "https://api.bigdatacloud.net/data/reverse-geocode-client"
+const BASE_URL = "https://api.bigdatacloud.net/data/reverse-geocode-client";
 
 function Form() {
   const [cityName, setCityName] = useState("");
+  const [emoji, setEmoji] = useState("");
   // eslint-disable-next-line no-unused-vars
   const [country, setCountry] = useState("");
   const [date, setDate] = useState(new Date());
   const [notes, setNotes] = useState("");
-  const [mapLat,mapLng] = useUrlPosition()
+  const [mapLat, mapLng] = useUrlPosition();
 
-  const [isLoadingGeocoding,setIsLoadingGeocoding] = useState(false)
+  const [isLoadingGeocoding, setIsLoadingGeocoding] = useState(false);
 
-  useEffect(()=>{
-    async function fethCityData(){
+  useEffect(() => {
+    async function fethCityData() {
       try {
-        setIsLoadingGeocoding(true)
-        const res = await fetch(`${BASE_URL}?latitude=${mapLat}&longitude=${mapLng}`)
-        const data = await res.json()
-        console.log(data)
+        setIsLoadingGeocoding(true);
+        const res = await fetch(
+          `${BASE_URL}?latitude=${mapLat}&longitude=${mapLng}`
+        );
+        const data = await res.json();
+        console.log(data);
 
+        if (!data.countryCode)
+          throw new Error(
+            "Doesn't seem to be  a city. Click somewhere else 😃"
+          );
+        setCityName(data.city || data.locality || "");
+        setCountry(data.countryName || data.locality || "");
+        setEmoji(convertToEmoji(data.countryCode));
       } catch (error) {
-        console.log(error)
-      }finally{
-        setIsLoadingGeocoding(false)
+        console.log(error);
+      } finally {
+        setIsLoadingGeocoding(false);
       }
-    }mn
-    fethCityData()
-  },[])
+    }
+    fethCityData();
+  }, [mapLat, mapLng]);
 
   return (
     <form className={styles.form}>
