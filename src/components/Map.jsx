@@ -76,7 +76,7 @@ function Map() {
     </div>
   );
 }
-
+ 
 function ChangeCenter({ position }) {
   const map = useMap();
   map.setView(position);
