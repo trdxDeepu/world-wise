@@ -8,9 +8,8 @@ const Sidebar = () => {
     <div className={styles.sidebar}>
       <Logo />
       <AppNav />
-      <Outlet/>
-      
-      <p>List of cities</p>
+      <Outlet />
+
       <footer className={styles.footer}>
         <p className={styles.copyright}>
           &copy; Copyright {new Date().getFullYear()} by WorldWise Inc.
